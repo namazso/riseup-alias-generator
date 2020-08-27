@@ -314,7 +314,7 @@ $PostParams = @{
 $PostAlias = Invoke-WebRequest -Uri "https://account.riseup.net/mail/aliases" -WebSession $Session -Method POST -Body $PostParams -UseBasicParsing -ErrorAction Stop;
 
 if(-not $PostAlias.RawContent -like "*Changes saved*") {
-    throw ("Adding alias failed. Server said: " + $PostLogin.RawContent);
+    throw ("Adding alias failed. Server said: " + $PostAlias.RawContent);
 }
 
 Set-Clipboard $Email;
